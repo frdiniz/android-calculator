@@ -7,7 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    // init display
     private TextView display;
+    // init handles
     private String newValue;
     private String displayValue;
     // init cache
