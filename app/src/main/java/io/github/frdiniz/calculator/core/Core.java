@@ -1,36 +1,25 @@
 package io.github.frdiniz.calculator.core;
 
-public class core {
-    // start cache memory
+public class Core {
     private Double cacheNumber;
     private Character cacheOperator;
-    public Double result;
+    private Double result;
 
-    // getters and setters
-
-    public Double getCache () {
-        return this.cacheNumber;
-    }
-
-    public void setCache (Double number, Character operator) {
-        this.cacheNumber = number;
-        this.cacheOperator = operator;
+    public void setCache (String number, String operator) {
+        this.cacheNumber = Double.parseDouble(number);
+        this.cacheOperator = operator.charAt(0);
     }
 
     public Double getResult () {
         return this.result;
     }
 
-    // core methods
-
     public String removeLastChar (String value) {
         return value.substring(0, value.length() -1);
     }
 
     public String negateNumber (String value) {
-
         Double invert = Double.parseDouble(value);
-
         //invert, negative or positive
         invert = invert > 0 ? invert * -1 : Math.abs(invert);
 
@@ -57,7 +46,6 @@ public class core {
                 this.result = cacheNumber % currentNumber;
                 break;
         }
-
         return this.result;
     }
 
