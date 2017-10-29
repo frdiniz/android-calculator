@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean cached = false;
     private boolean firstClick = true;
     private boolean newNumber = true;
+    private boolean numberInserted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         display = (TextView) findViewById(R.id.result);
         core = new Core();
+        display.setText("0.0");
 
         //clear all on long click
         Button clear = (Button) findViewById(R.id.clear);
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onLongClick(View view) {
                 core.clearCache();
                 resetControllers();
-                display.setText(null);
+                display.setText("0.0");
                 return true;
             }
         });
@@ -49,15 +51,20 @@ public class MainActivity extends AppCompatActivity {
 
         display.setText(newValue);
         newNumber = false;
+        numberInserted = true;
     }
 
     public void onClickClear(View view) {
         displayValue = display.getText().toString();
 
-        if (displayValue.length() > 0) {
+        if (displayValue.length() > 1) {
 
             newValue = core.removeLastChar(displayValue);
             display.setText(newValue);
+        } else {
+            display.setText("0.0");
+            //It allows a new number
+            newNumber = true;
         }
     }
 
@@ -85,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             //It allows a new number
             newNumber = true;
 
-        } else {
+        } else if(numberInserted && cached) {
             // calculate value of the previous operation
             core.calculate(displayValue);
             newValue = String.valueOf(core.getResult());
@@ -95,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
             display.setText(String.valueOf(core.getResult()));
             //It allows a new number
             newNumber = true;
+        } else {
+            firstClick = true;
         }
     }
 
@@ -119,5 +128,7 @@ public class MainActivity extends AppCompatActivity {
         firstClick = true;
         //It allows a new number
         newNumber = true;
+        // bug handle
+        numberInserted = false;
     }
 }
