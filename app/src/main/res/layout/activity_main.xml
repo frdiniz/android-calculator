@@ -60,7 +60,7 @@
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toRightOf="@+id/clear"
-        app:layout_constraintRight_toLeftOf="@+id/percent"
+        app:layout_constraintRight_toLeftOf="@+id/module"
         app:layout_constraintTop_toBottomOf="@+id/displayCardView"
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintVertical_weight="1"
@@ -68,10 +68,10 @@
         android:onClick="onClickNegate"/>
 
     <Button
-        android:id="@+id/percent"
+        android:id="@+id/module"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/percent"
+        android:text="@string/module"
         android:textSize="18sp"
         android:layout_marginTop="4dp"
         app:layout_constraintBottom_toTopOf="@+id/nine"
@@ -95,7 +95,7 @@
         app:layout_constraintBottom_toTopOf="@+id/multiply"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintLeft_toRightOf="@+id/percent"
+        app:layout_constraintLeft_toRightOf="@+id/module"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/displayCardView"
         app:layout_constraintVertical_chainStyle="spread"
@@ -148,7 +148,7 @@
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toRightOf="@+id/eight"
         app:layout_constraintRight_toLeftOf="@+id/multiply"
-        app:layout_constraintTop_toBottomOf="@+id/percent"
+        app:layout_constraintTop_toBottomOf="@+id/module"
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintVertical_weight="1"
         android:onClick="onClickNumber"/>
